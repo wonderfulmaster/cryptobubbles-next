@@ -15,10 +15,10 @@ export default function NavigationBar({ bubbleSort, setBubbleSort }: Props) {
     { label: "month", sortValue: PriceChangePercentage.MONTH },
     { label: "year", sortValue: PriceChangePercentage.YEAR },
   ];
-  let [selectFlag, setSelectFlag] = useState(false);
+  let [selectFlag, setSelectFlag] = useState(PriceChangePercentage.HOUR);
   const clickButtonFunc = (value: React.SetStateAction<PriceChangePercentage>) => {
     setBubbleSort(value);
-    //setSelectFlag(true);
+    setSelectFlag(value);
   };
 
   return (
@@ -29,9 +29,9 @@ export default function NavigationBar({ bubbleSort, setBubbleSort }: Props) {
             className={clsx(
               "p-2 text-center bg-[#373737] cursor-pointer border-solid border-2 border-[#ff6666] border-t-0 rounded-b-[12px] text-white hover:bg-[#ffffff40] w-1/5 md:w-auto",
               item.sortValue === bubbleSort && "bg-[#aa3333]",
-              selectFlag === true && "bg-[#aa3333]"
+              item.sortValue === selectFlag && "hover:bg-[#aa3333]"
             )}
-            key={Math.random()}
+            key={index}
             onClick={() => clickButtonFunc(item.sortValue)}
           >
             <span className="font-bold">{item.label.toUpperCase()}</span>

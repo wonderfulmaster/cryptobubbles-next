@@ -22,7 +22,6 @@ async function getCoins(): Promise<CoingeckoCoinData[]> {
   //     "x-api-key": "NVRy5WtjAr1dAO9sT8HfUbaBLZNlX6Y73sCQTBXj",
   //   },
   // });
-  console.log("@@@@@@@@", response);
   const data = await response.json();
   return data;
 }
