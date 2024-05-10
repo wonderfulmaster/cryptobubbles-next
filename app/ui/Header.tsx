@@ -4,7 +4,7 @@ import NavigationBar from "./NavigationBar";
 
 export default function Header() {
   return (
-    <div className="py-1 px-6 bg-[#444] flex justify-between border-b border-lime-400 flex justify-between items-center w-full">
+    <div className="py-1 px-6 bg-[#444] border-b border-lime-400 flex justify-between items-center w-full">
       <Link className="flex gap-2 grow-0 items-center" href={"/"}>
         <Image className="shrink-0" width={40} height={30} src={"/logo.png"} alt="logo-icon" />
 
