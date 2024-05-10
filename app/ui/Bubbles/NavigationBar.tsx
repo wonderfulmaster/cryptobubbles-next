@@ -1,6 +1,6 @@
 import { PriceChangePercentage } from "@/types/bubbles.types";
 import clsx from "clsx";
-import React from "react";
+import React, { useState } from "react";
 
 type Props = {
   bubbleSort: PriceChangePercentage;
@@ -15,17 +15,24 @@ export default function NavigationBar({ bubbleSort, setBubbleSort }: Props) {
     { label: "month", sortValue: PriceChangePercentage.MONTH },
     { label: "year", sortValue: PriceChangePercentage.YEAR },
   ];
+  let [selectFlag, setSelectFlag] = useState(false);
+  const clickButtonFunc = (value: React.SetStateAction<PriceChangePercentage>) => {
+    setBubbleSort(value);
+    //setSelectFlag(true);
+  };
+
   return (
-    <ul className="flex gap-1  w-full pt-1   md:py-2 fixed w-full bottom-0 left-0 md:static bg-zinc-950 md:bg-transparent">
+    <ul className="flex gap-1  w-full pt-0 md:py-0 fixed bottom-0 left-0 md:static bg-zinc-950 md:bg-transparent">
       {items.map((item, index) => {
         return (
           <li
             className={clsx(
-              "p-2 text-center bg-zinc-800 cursor-pointer text-white hover:border-lime-500 hover:border-b-2 ronded-t-lg w-1/5 md:w-auto",
-              item.sortValue === bubbleSort && "border-b-2 border-lime-500"
+              "p-2 text-center bg-[#373737] cursor-pointer border-solid border-2 border-[#ff6666] border-t-0 rounded-b-[12px] text-white hover:bg-[#ffffff40] w-1/5 md:w-auto",
+              item.sortValue === bubbleSort && "bg-[#aa3333]",
+              selectFlag === true && "bg-[#aa3333]"
             )}
             key={Math.random()}
-            onClick={() => setBubbleSort(item.sortValue)}
+            onClick={() => clickButtonFunc(item.sortValue)}
           >
             <span className="font-bold">{item.label.toUpperCase()}</span>
           </li>

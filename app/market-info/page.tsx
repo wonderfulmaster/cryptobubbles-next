@@ -12,7 +12,7 @@ async function getCoins(): Promise<CoingeckoCoinData[]> {
       "&sparkline=true" +
       "&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y" +
       "&locale=en" +
-      `&x_cg_demo_api_key=${process.env.COINGECKO_API_SECRET_KEY}`
+      `&x_cg_demo_api_key=CG-MiK8TQtuwhqCvm9chRsiT6gV`
   );
 
   const data = await response.json();

@@ -16,7 +16,7 @@ export default function NavigationBar() {
         <Link
           href={"/"}
           className={clsx(
-            "gap-1 p-1 border-b-2  flex items-center flex-col text-center bg-zinc-800 cursor-pointer text-white hover:border-lime-500",
+            "gap-1 p-1 border-b-2  flex items-center flex-col text-center bg-[#444] cursor-pointer text-white hover:border-lime-500",
             isBubblesViewActive ? "border-lime-500" : "border-zinc-800"
           )}
         >
@@ -28,7 +28,7 @@ export default function NavigationBar() {
         <Link
           href={"/market-info"}
           className={clsx(
-            "gap-1 p-1 border-b-2 border-zinc-800 flex items-center flex-col text-center bg-zinc-800 cursor-pointer text-white hover:border-lime-500",
+            "gap-1 p-1 border-b-2 border-zinc-800 flex items-center flex-col text-center bg-[#444] cursor-pointer text-white hover:border-lime-500",
             isTableViewActive ? "border-lime-500" : "border-zinc-800"
           )}
         >

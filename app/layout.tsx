@@ -27,9 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className + " bg-zinc-900 text-white "}>
+      <body className={inter.className + "bg-[#222] text-white "}>
         <Header />
-        <div className="mt-2">
+        <div>
           <PrimeReactProviders>{children}</PrimeReactProviders>
         </div>
       </body>

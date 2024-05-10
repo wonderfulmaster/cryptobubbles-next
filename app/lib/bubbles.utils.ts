@@ -26,6 +26,7 @@ const changeSizeStep = 2;
 
 export class BubblesUtils {
   static getScalingFactor = (data: CoingeckoCoinData[], bubbleSort: PriceChangePercentage = PriceChangePercentage.HOUR): number => {
+    // /console.log(data);
     if (!data) return 1;
     const max = data.map((item) => Math.abs(+item[bubbleSort]!));
     let totalSquare = 0;
