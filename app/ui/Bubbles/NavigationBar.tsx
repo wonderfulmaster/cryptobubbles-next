@@ -27,7 +27,7 @@ export default function NavigationBar({ bubbleSort, setBubbleSort }: Props) {
         return (
           <li
             className={clsx(
-              "p-2 text-center bg-[#373737] cursor-pointer border-solid border-2 border-[#ff6666] border-t-0 rounded-b-[12px] text-white hover:bg-[#ffffff40] w-1/5 md:w-auto",
+              "p-2 text-center bg-[#373737] cursor-pointer border-solid border-2 border-[#ff6666] border-t-0 rounded-b-[12px] text-white  w-1/5 md:w-auto",
               item.sortValue === bubbleSort && "bg-[#aa3333]",
               item.sortValue === selectFlag && "hover:bg-[#aa3333]"
             )}
