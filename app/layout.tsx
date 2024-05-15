@@ -5,8 +5,8 @@ import "@/app/ui/globals.scss";
 import "primereact/resources/primereact.css";
 import "primereact/resources/themes/md-dark-deeppurple/theme.css";
 import { PrimeReactProviders } from "./providers";
-import Header from "./ui/Header";
 
+import Header from "./ui/Header";
 const inter = Poppins({ subsets: ["latin"], weight: ["400"] });
 
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL ? `${process.env.NEXT_PUBLIC_VERCEL_URL}` : "http://localhost:3000";
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description: "General info abouttop 250 cryptocurrencies.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

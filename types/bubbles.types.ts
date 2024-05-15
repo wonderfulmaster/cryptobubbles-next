@@ -7,7 +7,6 @@ export enum PriceChangePercentage {
   MONTH = "price_change_percentage_30d_in_currency",
   YEAR = "price_change_percentage_1y_in_currency",
 }
-
 export type Circle = {
   id: string;
   x: number;

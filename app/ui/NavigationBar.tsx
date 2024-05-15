@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export default function NavigationBar() {
   const pathname = usePathname();
-  const isBubblesViewActive = pathname === "/";
+  const isBubblesViewActive = pathname === "/index";
   const isTableViewActive = pathname === "/market-info";
 
   return (

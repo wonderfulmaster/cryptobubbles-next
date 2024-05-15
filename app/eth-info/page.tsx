@@ -1,12 +1,9 @@
 import { CoingeckoCoinData } from "@/types/coingecko.type";
-import Bubbles from "./ui/Bubbles/index";
-
-let index: number = 0;
+import Bubbles from "../ui/Bubbles/index";
 async function getCoins(): Promise<CoingeckoCoinData[]> {
-  index++;
   const response = await fetch(
-    "https://api.coingecko.com/api/v3/" +
-      "coins/markets?" +
+    "https://www.coingecko.com/en/all-cryptocurrencies?" +
+      "filter_asset_platform=binance-smart-chain" +
       "vs_currency=usd" +
       "&order=market_cap_desc" +
       "&per_page=30" +
@@ -19,14 +16,12 @@ async function getCoins(): Promise<CoingeckoCoinData[]> {
   );
 
   const data = await response.json();
-  // getAll = data;
-  console.log("1111", data);
+  // console.log("kkkkkkk", data);
   return data;
 }
 
-export default async function Main() {
-  // const dd = await setInterval(getCoins, 1000);
-  //  const coins = await getCoins();
-  // console.log(getAll);
-  return <Bubbles page={"1"} per_page={"40"} />;
+export default async function EthInfoPaage() {
+  //const coins = await getCoins();
+
+  return <Bubbles page={"2"} per_page={"20"} />;
 }

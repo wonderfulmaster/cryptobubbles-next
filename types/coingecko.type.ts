@@ -45,6 +45,10 @@ export interface CoingeckoCoinData {
 
 export type CoingeckoHistoryResponse = [number, number, number, number][];
 
+export interface CoinsArray {
+  coins: CoingeckoCoinData[];
+}
+
 export interface CoingeckoSingleCoinData {
   id: string;
   symbol: string;
@@ -126,6 +130,7 @@ export interface CoingeckoSingleCoinData {
   last_updated: string;
   tickers: Ticker[];
 }
+
 export interface Ticker {
   base: string;
   target: string;

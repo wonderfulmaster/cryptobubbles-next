@@ -34,23 +34,26 @@ export default function Bubbles({ coins = [] }: Props) {
       setCircles(shapes);
     }
   }, [coins]);
-
+  let aaa: any;
   useEffect(() => {
     if (!circles) return;
     const imageSprites: PIXI.Sprite[] = [];
     const textSprites: PIXI.Text[] = [];
     const text2Sprites: PIXI.Text[] = [];
     const circleGraphics: PIXI.Sprite[] = [];
-
-    const app = new PIXI.Application({
+    let appContainer = appRef.current;
+    let app = new PIXI.Application({
       width: width,
       height,
       backgroundColor: "#222",
     }) as unknown;
-
-    const appContainer = appRef.current;
+    while (appContainer?.firstChild) {
+      appContainer.removeChild(appContainer.firstChild);
+    }
 
     appContainer?.appendChild((app as { view: Node }).view);
+
+    //console.log("666666", appContainer?.children.length, appContainer?.children);
     appContainer?.children[0].addEventListener("click", (e: unknown) => BubblesUtils.handleEmptySpaceClick(e as MouseEvent, circles));
 
     for (let i = 0; i < circles.length; i++) {
@@ -77,10 +80,11 @@ export default function Bubbles({ coins = [] }: Props) {
 
       container.addChild(text2);
       text2Sprites.push(text2);
-
+      //console.log("_____", container, appContainer?.children);
+      // if (appContainer?.children.length == 1) {
       (app as PIXI.Application<PIXI.ICanvas>).stage.addChild(container);
+      // }
     }
-
     const ticker = BubblesUtils.update(circles, imageSprites, textSprites, text2Sprites, circleGraphics);
     setTimeout(() => {
       (app as PIXI.Application<PIXI.ICanvas>).ticker.add(ticker);
@@ -89,7 +93,8 @@ export default function Bubbles({ coins = [] }: Props) {
 
     return () => {
       (app as PIXI.Application<PIXI.ICanvas>).ticker.remove(ticker);
-      // (app as PIXI.Application<PIXI.ICanvas>).destroy(true, true);
+      (app as PIXI.Application<PIXI.ICanvas>).destroy();
+
       appContainer?.children[0]?.removeEventListener("click", (e: unknown) => BubblesUtils.handleEmptySpaceClick(e as MouseEvent, circles));
     };
   }, [circles]);
